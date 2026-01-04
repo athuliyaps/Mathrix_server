@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     hasPassed:{
         type:Boolean,
-        default:false   //initailly false, as user not passed
+        default:false   
         
     }
 });

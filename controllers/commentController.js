@@ -1,7 +1,6 @@
 const comments = require('../models/commentModel')
 const mongoose = require('mongoose')
 
-// add Comment
 exports.addCommentController = async (req,res)=>{
     console.log("addCommentController");
     const userId = req.userId

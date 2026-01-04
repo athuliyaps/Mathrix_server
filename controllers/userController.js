@@ -54,7 +54,7 @@ exports.loginController = async (req, res) => {
 exports.quizResultController = async (req, res) => {
   try {
     const { score } = req.body;
-    const userId = req.user.userId; // Get from JWT middleware
+    const userId = req.user.userId; 
     
     const hasPassed = score >= 6;
     console.log(`Score: ${score}, hasPassed: ${hasPassed}`);

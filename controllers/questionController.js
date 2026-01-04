@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 
 
-// add questions
 exports.addQuestionController = async (req,res)=>{
     console.log("addQuestionController");
     const userId = req.userId
@@ -28,7 +27,6 @@ exports.addQuestionController = async (req,res)=>{
     
 }
 
-// get Questions
 exports.getAllQuestions = async (req,res)=>{
     try{
         const question = await questions.find().populate("userId","username")
@@ -40,21 +38,18 @@ exports.getAllQuestions = async (req,res)=>{
     }
 }
 
-//mine
 exports.deleteQuestion = async (req, res) => {
    try {
        const { id } = req.params;
-       console.log("Inside deleteQuestion, QuestionId:", id); // Debugging log
-       //ensure id is a string
+       console.log("Inside deleteQuestion, QuestionId:", id); 
        if (typeof id !== 'string') {
             return res.status(400).json({ message: "Invalid question ID" }); 
        }
-       //ensure id is a valid ObjectId
          if (!mongoose.Types.ObjectId.isValid(id)) {
               return res.status(400).json({ message: "Invalid question ID" });
          }       
        const question = await questions.findById(id);
-        console.log("Question found:", question); // Debugging log
+        console.log("Question found:", question); 
        if (!question) {
            return res.status(404).json({ message: "question not found" });
         }
